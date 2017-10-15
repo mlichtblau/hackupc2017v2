@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      About
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-select [(ngModel)]="group">
+    <ion-option *ngFor="let group_name of this.group_keys" [value]="group_name">{{ group_name }}</ion-option>
+  </ion-select>
+    <ion-list [virtualScroll]="this.groups[this.group]" [headerFn]="customHeaderFn">
+      <ion-item *virtualItem="let user" detail-none>
+        <ion-thumbnail item-left>
+          <img src="assets/badges/badge{{this.setColor(user.score)}}.png">
+        </ion-thumbnail>
+        <h2>{{user.firstname}}</h2>
+        <p>{{user.lastname}} <span style="float: right">{{user.score}}</span></p>
+      </ion-item>
+    </ion-list>
+</ion-content>

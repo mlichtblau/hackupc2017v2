@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Personal Score</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding-vertical="true">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshin...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div class = "center">
+    <ion-img  style="background-color: white" width="120px" height="120px" src="../../assets/badges/badge{{currentColor}}.png"></ion-img>
+    <p style="font-size: medium" class="randomMessage">{{currentMessage}}</p>
+    <canvas #lineCanvas></canvas>
+    <ion-card style="box-shadow: none" class= "card" [ngStyle]="{'background-color': currentColorCode}"><p>{{currentScore}}</p></ion-card>
+  </div>
+</ion-content>
